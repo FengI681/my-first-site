@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>灃逸 | 保險通訊處主管</title>
+<style>
+  :root {
+    --bg: #060b1f;
+    --bg-alt: #0d1638;
+    --card: #0f1a42;
+    --ink: #f2ede2;
+    --ink-soft: #a6afd4;
+    --gold: #c9a35c;
+    --gold-bright: #f0cd85;
+    --line: #2e3a72;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, sans-serif;
+    background:
+      linear-gradient(180deg, #081029 0%, #060b1f 40%, #060b1f 100%);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 96px 24px 64px;
+  }
+
+  header.hero {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .avatar {
+    width: 104px;
+    height: 104px;
+    margin: 0 auto 28px;
+    background: var(--bg-alt);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--gold-bright);
+    letter-spacing: 2px;
+    position: relative;
+  }
+
+  .avatar::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border: 1px solid var(--gold);
+    opacity: 0.35;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    color: var(--gold-bright);
+    padding: 6px 0;
+    margin-bottom: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding: 8px 18px;
+  }
+
+  h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+  }
+
+  .role {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin: 0;
+    letter-spacing: 0.06em;
+  }
+
+  .divider {
+    width: 56px;
+    height: 1px;
+    background: var(--gold);
+    margin: 30px auto 0;
+  }
+
+  section.card {
+    background: var(--card);
+    border: 1.5px solid var(--gold);
+    padding: 40px 36px;
+    margin-bottom: 24px;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(6, 11, 31, 0.6), 0 16px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  section.card::before {
+    content: "";
+    position: absolute;
+    top: -1.5px;
+    left: -1.5px;
+    width: 28px;
+    height: 28px;
+    border-top: 3px solid var(--gold-bright);
+    border-left: 3px solid var(--gold-bright);
+  }
+
+  .card h2 {
+    font-size: 13px;
+    color: var(--gold-bright);
+    letter-spacing: 0.22em;
+    margin: 0 0 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .card p {
+    margin: 0;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+
+  .traits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .traits span {
+    background: var(--bg-alt);
+    color: var(--gold-bright);
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--gold);
+    letter-spacing: 0.03em;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5px;
+    background: var(--gold);
+    border: 1.5px solid var(--gold);
+  }
+
+  .stat {
+    text-align: center;
+    padding: 26px 8px;
+    background: var(--bg-alt);
+  }
+
+  .stat .num {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold-bright);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .stat .label {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .guestbook-form {
+    display: grid;
+    gap: 12px;
+  }
+
+  .guestbook-form input,
+  .guestbook-form textarea {
+    width: 100%;
+    background: var(--bg-alt);
+    border: 1px solid var(--gold);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px 12px;
+    resize: vertical;
+  }
+
+  .guestbook-form input:focus,
+  .guestbook-form textarea:focus {
+    outline: none;
+    border-color: var(--gold-bright);
+  }
+
+  .guestbook-form textarea {
+    min-height: 64px;
+  }
+
+  .guestbook-form button {
+    justify-self: start;
+    background: var(--gold);
+    color: var(--bg);
+    border: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    cursor: pointer;
+  }
+
+  .guestbook-form button:hover {
+    background: var(--gold-bright);
+  }
+
+  .guestbook-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .guestbook-status {
+    font-size: 13px;
+    color: var(--gold-bright);
+    min-height: 18px;
+  }
+
+  .guestbook-list {
+    list-style: none;
+    margin: 24px 0 0;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    gap: 16px;
+  }
+
+  .guestbook-list li {
+    display: grid;
+    gap: 4px;
+  }
+
+  .guestbook-list .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .guestbook-list .entry-name {
+    color: var(--gold-bright);
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .guestbook-list .entry-time {
+    color: var(--ink-soft);
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .guestbook-list .entry-message {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.6;
+    word-break: break-word;
+  }
+
+  .guestbook-empty {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 32px; }
+    section.card { padding: 30px 24px; }
+    .wrap { padding: 64px 18px 48px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="avatar">灃逸</div>
+      <span class="eyebrow">SELF INTRODUCTION</span>
+      <h1>灃逸</h1>
+      <p class="role">富邦人壽保險通訊處主管．80人團隊領導者</p>
+      <div class="divider"></div>
+    </header>
+
+    <section class="card">
+      <h2>關於我</h2>
+      <p>你好，我是灃逸，目前擔任富邦人壽保險通訊處主管，帶領一支 80 人的團隊，在業務經營與單位管理之間取得平衡。做事講求條理分明、系統化，相信清楚的架構能讓團隊與生活都更從容有效率。</p>
+    </section>
+
+    <section class="card">
+      <div class="stats">
+        <div class="stat">
+          <span class="num">80+</span>
+          <span class="label">團隊成員</span>
+        </div>
+        <div class="stat">
+          <span class="num">AI</span>
+          <span class="label">效率工具愛好者</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>專業經營</h2>
+      <p>深耕保險通訊處經營，兼顧業務拓展與單位管理，重視新人培育、績效追蹤與招募面談的每個環節。</p>
+    </section>
+
+    <section class="card">
+      <h2>工作方式</h2>
+      <p>持續學習 AI 工作術，善用 Claude 等 AI 工具打造個人化的助理系統，把繁瑣的整理與流程自動化，把時間留給真正重要的事。</p>
+    </section>
+
+    <section class="card">
+      <h2>個人特質</h2>
+      <div class="traits">
+        <span>乾淨簡潔</span>
+        <span>條理分明</span>
+        <span>系統化思考</span>
+        <span>值得信賴</span>
+        <span>穩健務實</span>
+        <span>樂於學習新事物</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>訪客留言</h2>
+      <form class="guestbook-form" id="guestbook-form">
+        <input type="text" id="guestbook-name" placeholder="你的名字" maxlength="30" required>
+        <textarea id="guestbook-message" placeholder="留一句話給灃逸" maxlength="200" required></textarea>
+        <button type="submit">送出留言</button>
+        <p class="guestbook-status" id="guestbook-status"></p>
+      </form>
+      <ul class="guestbook-list" id="guestbook-list"></ul>
+    </section>
+  </div>
+
+  <script>
+    const form = document.getElementById('guestbook-form');
+    const nameInput = document.getElementById('guestbook-name');
+    const messageInput = document.getElementById('guestbook-message');
+    const statusEl = document.getElementById('guestbook-status');
+    const listEl = document.getElementById('guestbook-list');
+
+    function formatTime(iso) {
+      const d = new Date(iso.replace(' ', 'T') + 'Z');
+      return d.toLocaleString('zh-TW', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+    }
+
+    function renderMessages(messages) {
+      listEl.innerHTML = '';
+      if (!messages.length) {
+        const empty = document.createElement('li');
+        empty.className = 'guestbook-empty';
+        empty.textContent = '目前還沒有留言，來當第一位吧！';
+        listEl.appendChild(empty);
+        return;
+      }
+      for (const m of messages) {
+        const li = document.createElement('li');
+
+        const head = document.createElement('div');
+        head.className = 'entry-head';
+
+        const name = document.createElement('span');
+        name.className = 'entry-name';
+        name.textContent = m.name;
+
+        const time = document.createElement('span');
+        time.className = 'entry-time';
+        time.textContent = formatTime(m.created_at);
+
+        head.appendChild(name);
+        head.appendChild(time);
+
+        const msg = document.createElement('div');
+        msg.className = 'entry-message';
+        msg.textContent = m.message;
+
+        li.appendChild(head);
+        li.appendChild(msg);
+        listEl.appendChild(li);
+      }
+    }
+
+    async function loadMessages() {
+      try {
+        const res = await fetch('/api/messages');
+        if (!res.ok) throw new Error('load failed');
+        renderMessages(await res.json());
+      } catch (err) {
+        listEl.innerHTML = '';
+        const errorItem = document.createElement('li');
+        errorItem.className = 'guestbook-empty';
+        errorItem.textContent = '留言載入失敗，請重新整理頁面再試一次。';
+        listEl.appendChild(errorItem);
+      }
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = nameInput.value.trim();
+      const message = messageInput.value.trim();
+      if (!name || !message) return;
+
+      const submitBtn = form.querySelector('button');
+      submitBtn.disabled = true;
+      statusEl.textContent = '送出中...';
+
+      try {
+        const res = await fetch('/api/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, message }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || '送出失敗');
+
+        messageInput.value = '';
+        statusEl.textContent = '留言成功！';
+        await loadMessages();
+      } catch (err) {
+        statusEl.textContent = err.message || '送出失敗，請稍後再試。';
+      } finally {
+        submitBtn.disabled = false;
+        setTimeout(() => { statusEl.textContent = ''; }, 3000);
+      }
+    });
+
+    loadMessages();
+  </script>
+</body>
+</html>
+
